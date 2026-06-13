@@ -8,8 +8,6 @@ from app.core.logging import configure_logging
 from app.middleware.request_logging import RequestLoggingMiddleware
 
 
-
-
 def create_app() -> FastAPI:
     configure_logging()
 

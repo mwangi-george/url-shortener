@@ -1,6 +1,6 @@
 # URL Shortener Service
 
-Production-oriented async Python URL shortener using FastAPI, async SQLAlchemy, asyncpg, Redis, Uvicorn, uv, Loguru, and Alembic.
+Simple async Python URL shortener project using FastAPI, async SQLAlchemy, asyncpg, Redis, Uvicorn, uv, Loguru, and Alembic.
 
 ## Features
 

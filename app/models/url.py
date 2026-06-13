@@ -1,0 +1,21 @@
+from __future__ import annotations
+
+from datetime import datetime
+
+from sqlalchemy import BigInteger, Boolean, DateTime, String, Text, func
+from sqlalchemy.orm import Mapped, mapped_column
+
+from app.db.base import Base
+
+
+class ShortURL(Base):
+    __tablename__ = "short_urls"
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    alias: Mapped[str] = mapped_column(String(32), unique=True, index=True, nullable=False)
+    long_url: Mapped[str] = mapped_column(Text, nullable=False)
+    user_id: Mapped[int | None] = mapped_column(BigInteger, index=True, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, server_default="true")
+    click_count: Mapped[int] = mapped_column(BigInteger, default=0, server_default="0")
